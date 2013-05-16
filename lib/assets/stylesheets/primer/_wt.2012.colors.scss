@@ -1,0 +1,50 @@
+/* ----- BLAH BLAH SCHEME ----- */
+$mainBackground: #fff;
+$mainTextColor: #333;
+
+$linkColor: blue;
+$visitedColor: purple;
+$hoverColor: red;
+$activeColor: red;
+
+$textColorSuccess: Green;
+$textColorInfo: Blue;
+$textColorWarning: Fuchsia;
+$textColorError: Red;
+
+@mixin bgColorSuccess {
+	@include background(linear-gradient(top, green, olive));
+}
+@mixin bgColorInfo {
+	@include background(linear-gradient(top, teal, blue));
+}
+@mixin bgColorWarning {
+	@include background(linear-gradient(top, purple, fuchsia));
+}
+@mixin bgColorError {
+	@include background(linear-gradient(top, maroon, red));
+}
+@mixin bgColorSuccessHover {
+	@include background(linear-gradient(top, lighten(green, 20%), lighten(olive, 20%)));
+}
+@mixin bgColorInfoHover {
+	@include background(linear-gradient(top, lighten(teal, 20%), lighten(blue, 20%)));
+}
+@mixin bgColorWarningHover {
+	@include background(linear-gradient(top, lighten(purple, 20%), lighten(fuchsia, 20%)));
+}
+@mixin bgColorErrorHover {
+	@include background(linear-gradient(top, lighten(maroon, 20%), lighten(red, 20%)));
+}
+@mixin bgColorSuccessActive {
+	@include background(linear-gradient(top, darken(green, 20%), darken(olive, 20%)));
+}
+@mixin bgColorInfoActive {
+	@include background(linear-gradient(top, darken(teal, 20%), darken(blue, 20%)));
+}
+@mixin bgColorWarningActive {
+	@include background(linear-gradient(top, darken(purple, 20%), darken(fuchsia, 20%)));
+}
+@mixin bgColorErrorActive {
+	@include background(linear-gradient(top, darken(maroon, 20%), darken(red, 20%)));
+}

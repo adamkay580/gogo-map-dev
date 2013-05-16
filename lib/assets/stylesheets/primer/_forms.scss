@@ -1,0 +1,59 @@
+$placeholderColor: Fuchsia;
+$disabledColor: Fuchsia;
+$requiredInvalidColor: Fuschsia;
+$requiredInvalidBgColor: Purple;
+
+form {}
+fieldset {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+legend {}
+
+input,
+button,
+select,
+textarea {
+	font-family: $formFontStack;
+}
+label {}
+
+textarea:focus,
+input:focus,
+select:focus {}
+
+input[type="radio"],
+input[type="checkbox"] {
+	cursor: pointer;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder,
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+	color: $placeholderColor;
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+	cursor: not-allowed;
+	background-color: $disabledColor;
+}
+
+input:focus:required:invalid,
+textarea:focus:required:invalid,
+select:focus:required:invalid {
+	color: $requiredInvalidColor;
+	border-color: $requiredInvalidBgColor;
+}
+input:focus:required:invalid:focus,
+textarea:focus:required:invalid:focus,
+select:focus:required:invalid:focus {
+}

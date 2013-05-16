@@ -1,0 +1,119 @@
+@mixin flyouts {
+	$showColor: #000 !default;
+	$showColorLight: #fff !default;
+	$showColorHover: #60a6d6 !default;
+
+	$flyoutFromColor: #222 !default;
+	$flyoutToColor: #131313 !default;
+	$flyoutShadow: 0 1px 7px rgba(0, 0, 0, .7) !default;
+
+	$liHoverColor: #3a3a3a !default;
+	$liLinkColor: #fff !default;
+	$liLinkColorHover: #60a6d6 !default;
+	$liTextColor: #BABABA !default;
+
+	.showFlyout {
+		display: inline-block;
+		position: relative;
+		cursor: pointer;
+	}
+	.showFlyout-tri {
+		top: 3px;
+		width: 0;
+		border: 5px solid transparent;
+		border-top-color: $showColor;
+	}
+	/* Don't delete this rule. It keeps the flyout
+	content from being text selected in Firefox */
+	.showFlyout:after { content: ''; }
+
+	.tri-white { border-top-color: $showColorLight; }
+	.showFlyout-tri:hover, .showFlyout-tri.on { border-top-color: $showColorHover; }
+	.showFlyoutIcon {
+		display: block;
+		text-indent: 150%;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	.flyout {
+		display:none;
+		position: absolute;
+		right: -23px;
+		margin-top: 18px;
+		padding: 5px 0;
+		width: auto;
+		white-space: nowrap;
+		background-color: $flyoutToColor;
+		@include background(linear-gradient(top, $flyoutFromColor, $flyoutToColor));
+		border-radius:5px;
+		@include box-shadow($flyoutShadow);
+		z-index: 110;
+		cursor: default;
+	}
+	.flyout:after {
+		content: "";
+		display:block;
+		position:absolute;
+		top:-26px;
+		right:10px;
+		border:13px solid transparent;
+		border-bottom-color: $flyoutToColor;
+		z-index:3;
+	}
+	.flyout li { padding: 0 12px; margin: 0; }
+	.flyout li:hover { background-color: $liHoverColor; }
+	.flyout li.flyoutText:hover { background-color: transparent; }
+	.flyout li a, .flyout li.flyoutText span {
+		display:block;
+		padding: 5px;
+		font-size: 11px;
+		line-height: 1.5;
+		font-weight: bold;
+		color: $liLinkColor;
+		text-decoration: none;
+	}
+	.flyout li.flyoutText span { color: $liTextColor; }
+	.flyout li a:hover { color: $liLinkColorHover; }
+
+	.flyout-icons li a { padding-left: 22px; background: url(/img/flyout-sprites.png) no-repeat; }
+
+	.flyout-top:after {
+		top: auto;
+		bottom: -26px;
+		border-color: $flyoutToColor transparent transparent;
+	}
+	.flyout-right {
+		left: -23px;
+		right: auto;
+	}
+	.flyout-right:after {
+		left: 10px;
+		right: auto;
+	}
+	.flyout-flat-right, .flyout-flat-left, .flyout-flat-center {
+		padding: 5px;
+		top: -38px;
+		left: 19px;
+		right: auto;
+	}
+	.flyout-flat-left {
+		left: auto;
+		right: 19px;
+	}
+	.flyout-flat-right>li, .flyout-flat-left>li, .flyout-flat-center>li {
+		display: inline-block;
+	}
+	.flyout-flat-right:after {
+		top: 5px;
+		left: -26px;
+		right: auto;
+		border-color: transparent $flyoutToColor transparent transparent;
+	}
+	.flyout-flat-left:after {
+		top: 5px;
+		right: -26px;
+		border-color: transparent transparent transparent $flyoutToColor;
+	}
+	.flyout-flat-center:after { border: 0; }
+}

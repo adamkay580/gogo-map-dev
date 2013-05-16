@@ -1,0 +1,13 @@
+<h2>purchases</h2>
+<ul>
+<% for( var i = 0; i < purchases.length; i++ ) { 
+	var totalRevenue = purchases[i].revenue * purchases[i].count; 
+	var barWidth = ( purchases[i].count / sum ) * 250;
+%>
+	<li>
+		<span class="bar-label"><%= purchases[i].name %></span>
+		<span class="purchase-bar bar_<%= i %>" style="width: <%= barWidth %>px;"><span class="purchase-value"><%= purchases[i].count %></span></span> 
+		<span class="revenue">$<%= totalRevenue.toFixed(2) %></span>
+	</li>
+<% } %>
+</ul>

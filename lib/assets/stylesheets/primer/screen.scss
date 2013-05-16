@@ -1,0 +1,33 @@
+/* ----- Include String CSS framework ----- */
+@import "string";
+
+/* ----- Main app CSS ----- */
+/* configuration
+	$showColor: #000;
+	$showColorLight: #fff;
+	$showColorHover: #60a6d6;
+
+	$flyoutFromColor: #222;
+	$flyoutToColor: #131313;
+	$flyoutShadow: 0 1px 7px rgba(0, 0, 0, .7);
+
+	$liHoverColor: #3a3a3a;
+	$liLinkColor: #fff;
+	$liLinkColorHover: #60a6d6;
+	$liTextColor: #BABABA;
+*/
+@include flyouts();
+
+
+$grid_num: 4;
+$grid_style: fluid;
+$grid_col: 100%;
+$grid_gutter: 2%;
+@include grids;
+
+/* ----- Media Queries -----
+To keep the compiled CSS compact, put media queries here
+rather than SCSS nested within their selectors. */
+@media screen and (min-width: XXem) {
+	/* Begin with linear / small screens and add styles for larger screens. Use ems not px */
+}

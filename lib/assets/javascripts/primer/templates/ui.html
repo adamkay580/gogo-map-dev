@@ -1,0 +1,50 @@
+<section id="templates">
+
+	<!-- Accordion -->
+	<script type="template" data-template-name="accordion">
+		<div class="accordion"></div>
+	</script>
+
+	<script type="template" data-template-name="accordionGroup">
+		<div class="accordion-group">
+		    <div class="accordion-heading">
+		      <a class="accordion-toggle" data-toggle="collapse" data-parent="#<%= parentId %>" href="#<%= paneId %>">
+		        <%= toggleLabel %>
+		      </a>
+		    </div>
+		    <div id="<%= paneId %>" class="accordion-body collapse in">
+		      <div class="accordion-inner">
+		      <%= content %>
+		      </div>
+		    </div>
+		  </div>
+	</script>
+
+	<!-- Modal Dialog -->
+	<script type="template" data-template-name="modal">
+		<div class="wrapper">
+			<div class="curtain"></div>
+			<div class="content"></div>
+		</div>
+	</script>
+
+	<!-- Flyout -->
+	<script type="template" data-template-name="flyout">
+		<div class="flyout"></div>
+	</script>
+
+	<!-- Dropdown -->
+	<script type="template" data-template-name="dropdown">
+		<ul class="dropdown">
+			<% _.each(items, function(item) { %> <li><%= item %></li> <% }); %>
+		</ul>
+	</script>
+
+	<!-- Dropdown Item -->
+	<script type="template" data-template-name="dropdownItem">
+		<li class="dropdown">
+			<a href="<%= href %>"><%= label %></a>
+		</li>
+	</script>
+
+</section>

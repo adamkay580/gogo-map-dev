@@ -1,0 +1,10 @@
+<div id="graph"></div>
+<!-- <div id="legend"><span>This flight</span> <span>all flights</span> </div> -->
+<ul class="xaxis">
+    <% 
+    	xaxis.pop();
+    	_.each( xaxis, function(t) { 
+    %>
+    <li><%= t %></li>
+    <% }) %>
+</ul>

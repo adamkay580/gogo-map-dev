@@ -1,0 +1,86 @@
+/* Grid system */
+/* 
+There are thre possible types of grids:
+1 - fluid, the default and preferred, with columns and gutter in percentages
+2 - mixed, columns with percentages and gutters in fixed sizes (rem units preferred)
+3 - fixed, both columns and gutters in fixed sizes (rem units preferred)
+
+The markup is straight forward for these styles,
+with a small change needed for the mixed style.
+
+<div class="row">
+	<div class="col-1">
+		content
+	</div>
+	<div class="col-4">
+		spans 4 columns
+	</div>
+	<div class="col-1">
+		content
+	</div>
+</div>
+<div class="row">
+	<div class="col-5 offset-1">
+		spans 5 columns and is offset from the left 1 column (pushed towards the right)
+	</div>
+</div>
+
+Because mixed uses padding instaed of margin for it's gutters,
+an extra content wrapper is needed to allow backgrounds to work easier.
+<div class="col-1">
+	<div class="cell">
+		content
+	</div>
+</div>
+
+For fluid and mixed, column width ($grid_col) will be automatically calculated
+based off of the number of columns.
+*/
+
+@mixin grids {
+	$grid_style: fluid !default;
+	$grid_num: 1 !default;
+	$grid_gutter: 0% !default;
+	$grid_col: 1% !default;
+
+	$gutterStyle: margin-left;
+
+	@if $grid_style == mixed {
+		$gutterStyle: padding-left;
+		$grid_col: 100% / $grid_num;
+
+		@for $i from 1 through $grid_num {
+			.col-#{$i} {
+				width: $grid_col * $i;
+			}
+			.offset-#{$i} {
+				margin-left: $grid_col * $i;
+			}
+		}
+	} @else {
+		@if $grid_style == fluid {
+			$gutterWidths: $grid_gutter * ($grid_num - 1);
+			$grid_col: (100 - $gutterWidths) / $grid_num;
+		}
+
+		@for $i from 1 through $grid_num {
+			.col-#{$i} {
+				width: (($grid_col + $grid_gutter) * $i) - $grid_gutter;
+			}
+			.row .offset-#{$i} {
+				margin-left: (($grid_col + $grid_gutter) * $i);
+			}
+		}
+	}
+
+	.row {
+		@extend .clearfix;
+		width: 100%;
+	}
+	[class*="col-"] {
+		float: left;
+		min-height: 1px;
+		#{$gutterStyle}: $grid_gutter;
+	}
+	[class*="col-"]:not([class*="offset-"]):first-child { #{$gutterStyle}: 0; }
+}

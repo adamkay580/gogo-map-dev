@@ -1,0 +1,51 @@
+# Start our app immediately
+deps:
+    # - main
+
+paths:
+    # For easy reference to the Primer library
+    primerjs:     'primer/primer'
+
+    # Main libraries
+    jquery:       'jquery-1.8.2'
+    underscore:   'underscore'
+    backbone:     'backbone'
+
+    # If you need to refer to the app folder itself in a require path,
+    # for example, if you add a `messages` folder for localized strings, use _app.
+    # _app:         'app'
+    # vendor:       'vendor'
+    # primer:       'primer'
+
+shim:
+    # jquery:
+    #     exports: '$'
+    jquery_ujs:
+        - jquery
+
+    backbone:
+        deps:
+            - underscore
+            - jquery
+        exports: Backbone
+
+    primerjs:
+        deps:
+            - jquery
+            - underscore
+            - backbone
+
+            # Plugins
+            - bootstrap.plugins
+        exports:
+            Primer
+
+    # Plugin Dependencies
+    bootstrap.plugins:
+        - jquery
+    ckeditor/ckeditor:
+        - jquery
+    plugins/slidingpane:
+        - jquery
+    templates:
+        - underscore

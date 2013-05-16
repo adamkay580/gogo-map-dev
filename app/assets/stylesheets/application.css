@@ -1,0 +1,617 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require primer/screen
+ *= require_self
+ *= require_tree .
+ */
+
+
+.flight {
+	cursor: pointer;
+
+}
+
+.flightdetails{
+	list-style: none;
+	margin-left: 40px;
+}
+
+
+ @font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('images/BebasNeue-webfont.eot');
+    src: url('BebasNeue-webfont.eot#iefix') format('embedded-opentype'),
+         url('BebasNeue-webfont.woff') format('woff'),
+         url('BebasNeue-webfont.ttf') format('truetype'),
+         url('BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+    background: #000;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#gogo {
+    background: #f5f5f5;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+#topbar {
+    border-bottom: 1px solid gray;
+    height: 101px;
+    width: 100%;
+}
+
+#topbar > ul {
+    width: 100%;
+}
+
+#topbar > ul li {
+    float: left;
+    border-right: 1px solid gray;
+    height: 100px;
+    background: #fff;
+    padding: 5px 10px;
+}
+
+#topbar #filters {
+    background: url('bg-filters.png') repeat-x left top;
+    float: right;
+    width: 287px;
+    color: #fff;
+    font-size: 13px;
+    border-right: none;
+    
+    display: none;
+}
+
+#filters div {
+    margin-bottom: 10px;
+}
+
+#filters label {
+    padding-right: 10px;
+}
+
+#city-pair {
+    width: 125px;
+}
+
+#topbar #gogologo {
+    width: 155px;
+    background: white url('gogologo.png') no-repeat 15px 8px;
+}
+
+#topbar ul li:nth-child(3) .value,
+#topbar ul li:nth-child(4) .value,
+#topbar ul li:nth-child(5) .value {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.value, .label {
+    font-family: 'BebasNeueRegular';
+}
+.bar .value, .bar .label {
+    position: relative;
+    left: 5px;
+    z-index: 1;
+    line-height: 50px;
+    font-size: 1.5em;
+    color: rgba(50,50,50, 0.85);
+}
+.bar .value {
+	font-size: 3em;
+}
+
+#flights-users {
+    width: 170px;
+}
+
+#flights-users ul li {
+    height: auto;
+    border: none;
+    padding-left: 35px;
+    padding-top: 13px;
+}
+
+#flights-users li:first-child {
+    background: url('icon-grayplane.png') no-repeat left 10px;
+}
+
+#flights-users li:last-child {
+    background: url('icon-user.png') no-repeat left 10px;
+}
+
+#topbar p {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    line-height: 1;
+}
+
+#topbar .value {
+    font-size: 60px;
+}
+
+#flights-users .value {
+    font-size: 30px;
+}
+
+#map {
+	position: absolute;
+    height: -webkit-calc(100% - 101px);
+    height: calc(100% - 101px);
+    width: 100%;
+}
+#infowindow {
+	font-family: BebasNeueRegular;
+	color: #333;
+	text-transform: uppercase;
+	line-height: 1.3;
+	font-size: 1.2em;
+}
+#infowindow>span {
+	display: block;
+	float: left;
+	width: 50%;
+	font-size: 1.3em;
+	font-weight: bold;
+	line-height: 1.8;
+}
+#infowindow>span:last-of-type {
+	text-align: right;
+	font-size: 1em;
+	line-height: 2.5;
+}
+#infowindow>div {
+	clear: both;
+}
+
+#funnel {
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid gray;
+    width: 100%;
+    z-index: 100;
+}
+
+#funnel ul {
+    width: 100%;
+}
+
+#funnel li {
+    border-right: 1px solid gray;
+    float: left;
+    padding: 10px 10px 10px 20px;
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, .75);
+    width: 25%;
+}
+
+#funnel div { float: right; }
+#funnel div:first-child {
+	padding-left: 5px;
+	border-left: 2px solid;
+	margin-left: 5px;
+}
+
+#funnel p {
+    text-align: right;
+    padding: 0 10px 0 0;
+    margin: 0;
+}
+
+#funnel li:first-child {
+    background-image: url('wifi2.png');
+}
+
+#funnel li:nth-child(2) {
+    background-image: url('wifi3.png');
+}
+
+#funnel li:nth-child(3) {
+    background-image: url('wifi4.png');
+}
+
+#funnel li:nth-child(4) {
+    background-image: url('wifi5.png');
+}
+
+#funnel .value {
+    font-size: 40px;
+    line-height: 1;
+}
+
+#plane-detail {
+    display: none;
+    height: 345px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0 -3px 10px rgba(0,0,0,.5);
+    z-index: 10;
+    background: -webkit-linear-gradient(top,  rgba(212,236,247,1) 0%,rgba(150,210,236,1) 100%);        
+}
+
+#plane {
+    background: url('plane.png') -50px -15px no-repeat ;
+    height: 300px;
+    position: relative;
+}
+
+#tail {
+    width: 100px;
+    margin-left: 10px;
+    padding-top: 20px;
+    cursor: pointer;
+}
+
+#tail p:first-child {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#tail p:last-child {
+    display: inline-block;
+    color: white;
+    background: #595959;
+    padding: 3px 5px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#wing {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    left: 350px;
+    top: 10px;
+}
+
+
+#wing p:first-child {
+    background-position:-30px -10px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    width: 242px;
+    height: 40px;
+}
+
+.AAL #wing p:first-child, .AA #wing p:first-child {background-image: url('logo-american.png'); }
+.AS #wing p:first-child, .ASA #wing p:first-child {background-image: url('logo-alaska.png');  }
+.FL #wing p:first-child, .TRS #wing p:first-child {background-image: url('logo-airtran.png');  }
+.AC #wing p:first-child, .ACA #wing p:first-child {background-image: url('logo-canada.png');  }
+.DAL #wing p:first-child, .DL #wing p:first-child {background-image: url('logo-delta.png');  }
+.F9 #wing p:first-child, .FFT #wing p:first-child { background-image: url('logo-frontier.png'); }
+.UA #wing p:first-child, .UAL #wing p:first-child {background-image: url('logo-united.png');  }
+.US #wing p:first-child, .AWE #wing p:first-child {background-image: url('logo-US.png');  }
+.VX #wing p:first-child, .VRD #wing p:first-child {background-image: url('logo-virgin.png');  }
+
+
+.flightno {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.cities {
+    display: inline-block;
+    color: white;
+    background: #595959;
+    padding: 3px 5px;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 12px;
+}
+.cities .arrow { font-size: 13px; }
+
+#fuselage {
+    position: relative;
+}
+
+#coach {
+    position: absolute;
+    top: 50px;
+}
+
+.bar {
+	position: relative;
+    height: 50px;
+    width: 300px;
+    background: #f0f0f0;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.stats {
+    float: left;
+    font-size: 35px;
+    color: rgba(0, 0, 0, .43);
+    padding-left: 10px;
+    padding-top: 8px;
+}
+
+#activated .stats span,
+#errored .stats span {
+    font-size: 50px;
+    line-height: 30px;
+}
+
+#activated .stats span {
+    color: #068fcf;
+}
+
+#errored .stats span {
+    color: #95d1ec;
+}
+
+.stats div {
+    float: left;
+}
+
+.stats div:last-child {
+    margin-left: 20px;
+}
+
+.stats p:last-child {
+    font-size: 15px;
+}
+
+#activated .stats span.label,
+#errored .stats span.label {
+    font-size: 20px;
+}
+
+#activated .colorbar {
+    background: #068fcf;
+}
+
+#errored .colorbar {
+    background: #95d1ec;
+}
+
+.colorbar {
+	position: absolute;
+	top: 0;
+    width: 0px;
+    height: 50px;
+}
+
+#status-bar {
+	position: absolute;
+	top: 102px;
+	left: 20px;
+	z-index: 10;
+}
+
+button {
+	border-radius: 3px;
+	padding: 1px 4px;
+	opacity: .6;
+    background: #000;
+    border: none;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+button:hover { opacity: .9; }
+
+#poweredby {
+	position: absolute;
+	bottom: 85px;
+	left: 7px;
+	font-size: 0.7em;
+	line-height: 1.2;
+	color: rgba(0,0,0,.6);
+}
+#poweredby a {
+	color: rgba(0,0,0,.8);
+	text-decoration: none;
+}
+#poweredby a:hover {
+	color: rgba(0,0,0,1);
+	text-decoration: underline;
+}
+
+#purchases {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    bottom: 90px;
+    font-family: 'bebasneueregular';
+    width: 420px;
+    line-height: 1;
+    background: rgba(255, 255, 255, .75);
+    padding: 10px;
+    height: 245px;
+}
+
+#purchases.flight-detail {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    bottom: 90px;
+    font-family: 'bebasneueregular';
+    width: 420px;
+    line-height: 1;
+}
+
+#purchases ul li {
+    margin-bottom: 1px;
+    }
+    
+#purchases ul li:last-child {
+    margin-bottom: 0;
+}
+
+.bar-label {
+    text-align: right;
+    display: inline-block;
+    width: 100px;
+    margin-right: 5px;
+    font-size: 1.5em;
+}
+
+.purchase-bar {
+    display: inline-block;
+    padding: 10px 5px;
+    max-width: 250px;
+}
+
+#purchases ul li:nth-child(1) .purchase-bar {background: #595959;}
+#purchases ul li:nth-child(2) .purchase-bar {background: #6a6a6a;}
+#purchases ul li:nth-child(3) .purchase-bar {background: #7b7b7b;}
+#purchases ul li:nth-child(4) .purchase-bar {background: #8c8c8c;}
+#purchases ul li:nth-child(5) .purchase-bar {background: #9d9d9d;}
+
+
+
+.purchase-value {
+    color: white;
+    font-size: 1.5em;
+}
+
+.revenue {
+	float: right;
+    display: inline-block;
+    font-size: 1.1em;
+    line-height: 41px;
+    color: #444;
+}
+
+#first-class {
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    left: 620px;
+    top: 25px;
+    font-family: 'bebasneueregular'
+}
+.xaxis {
+	display: -webkit-flex;
+}
+.xaxis>li {
+	-webkit-flex: 1;
+}
+#jqstooltip {
+	background: none;
+	border: 0;
+}
+#jqstooltip .jqsfield {
+	font-size: 1.2em;
+	color: #333;
+	font-weight: bold;
+}
+.jqsfield>span { display: none;}
+
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
+#graph {
+    width: 300px;
+    height: 90px;
+}
+
+#legend span:first-child {
+    color: #068fcf;
+}
+
+#legend span:last-child {
+    color: #595959;
+}
+
+
+
+@media all and (max-width: 1024px) {
+    #topbar ul li:nth-child(3),
+    #topbar ul li:nth-child(4),
+    #topbar ul li:nth-child(5) {
+        padding-top: 40px;
+        text-align: right;
+        width: 13.4%;
+    }
+    
+    #purchases {
+        display: none;
+    }
+    
+    #map {
+        height: 923px;
+    }
+}
+
+@media all and (min-width: 1025px) {
+    #topbar ul li:nth-child(3),
+    #topbar ul li:nth-child(4),
+    #topbar ul li:nth-child(5) {
+        padding-top: 40px;
+        text-align: right;
+        width: 19.16%;
+    }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    #funnel li {
+        height: 75px;
+        padding: 0 0 0 13px;
+    }
+
+    #funnel p {
+        text-align: center;
+    }
+    
+    #funnel p:last-child {
+        line-height: 1;
+    }
+    
+    #flights-users, #filters, #gogologo, #map, #flights {
+        display: none;
+    }
+    
+    #purchases {
+        position: relative;
+        bottom: 0;
+        width: auto;
+        height: 400px;
+        z-index: 0;
+    }
+    
+    #topbar ul li:nth-child(3),
+    #topbar ul li:nth-child(4),
+    #topbar ul li:nth-child(5) {
+        width: 33.33%;
+    }
+    
+    #topbar ul li:nth-child(5) {
+        border-right: none;
+    }
+    
+}

@@ -1,0 +1,90 @@
+<div id="status-bar">
+    <button id="start">Take off</button>
+    <button id="stop">Land</button>
+</div>
+
+<div id="topbar">
+    <ul>
+        <li id="gogologo"></li>
+        <li id="flights-users">
+            <ul>
+                <li>
+                    <span class="value flights">0</span> <span class="label">flights in air</span>
+                </li>
+                <li>
+                    <span class="value users">0</span> <span class="label">users</span>
+                </li>
+            </ul>
+        </li>
+        <li id="events"><span class="value events">0</span> <span class="label">events</span></li>
+        <li id="activations"><span class="value activations">0</span> <span class="label">activations</span></li>
+        <li id="errors"><span class="value errors">0</span> <span class="label">errors</span></li>
+        <li id="filters">
+        
+            <div>
+                <label for="airline">Airline</label>
+                <select id="airline">
+                	<option>All</option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="city-pair">City Pair</label>
+                <select id="city-pair">
+                	<option>All</option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="flight-search">Flight or Tail #</label>
+                <input id="flight-search" type="text" name="" value="" />
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+<!-- Import Google Map here -->
+<div id="map"></div>
+
+
+<div id="purchases">
+<h2>purchases</h2>
+</div>
+
+
+<div id="funnel">
+    <ul>
+        <li>
+            <p class="value start">0</p>
+            <p class="label">Start</p>
+        </li>
+        <li>
+            <p class="value signup">0</p>
+            <p class="label">Sign Up/In</p>
+        </li>
+        <li>
+            <p class="value paymentinfo">0</p>
+            <p class="label">payment info</p>
+        </li>
+        <li>
+	        <div class="conversion">
+	            <p class="value converted">0%</p>
+	            <p class="label">Conversion</p>
+	        </div>
+        	<div class="num">
+	            <p class="value activated">0</p>
+	            <p class="label">Activated</p>
+	        </div>
+        </li>
+    </ul>
+
+</div> <!--end #funnel-->
+
+<!--end #topbar-->
+
+<div id="poweredby">
+	<p>Powered by <a href="http://webtrends.com/solutions/digital-measurement/streams" target="_blank">Webtrends Streams</a></p>
+	<p>Flight data provided by <a href="http://www.flightstats.com/" target="_blank">FlightStats</a></p>
+</div>

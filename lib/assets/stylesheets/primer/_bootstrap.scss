@@ -1,0 +1,240 @@
+/* ----- Bootstrap Bill Turner ----- */
+
+// Everything uses border-box so that padding and borders don't confuse widths.
+*, *::after, *::before {
+	@include box-sizing (border-box);
+}
+
+/* Typography */
+html { font-size: 62.5%; } // Baseline to 10px for easy math with rem units.
+// rem is "root em" - em units sized relative to the root (html element) not the parent.
+body {
+	font: 1.4rem / 2rem $fontStack;
+	color: $mainTextColor;
+}
+a { color: $linkColor; }
+a:visited { color: $visitedColor; }
+a:hover { color: $hoverColor; }
+a:active { color: $activeColor; }
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 1em 0;
+	text-rendering: optimizelegibility;
+}
+
+blockquote {}
+pre {}
+code {}
+
+// Response text styles.
+.text-success { color: $textColorSuccess; }
+.text-info { color: $textColorInfo; }
+.text-warning { color: $textColorWarning; }
+.text-error { color: $textColorError; }
+.text-success:hover { color: darken($textColorSuccess, 20%); }
+.text-info:hover { color: darken($textColorInfo, 20%); }
+.text-warning:hover { color: darken($textColorWarning, 20%); }
+.text-error:hover { color: darken($textColorError, 20%); }
+
+/* Lists */
+ul {}
+ol {}
+li {}
+dl {}
+dt { font-weight: bold; }
+dd {}
+
+/* Tables */
+// Wholesale copy of Twitter Bootstrap code? Strip out grid code and success/warning code.
+// Normal
+table {
+	width: 100%;
+	th, td{}
+}
+
+
+// Striped
+.table-striped {
+	tbody>tr:nth-child(odd)>th,
+	tbody>tr:nth-child(odd)>td {
+		background-color: #efefef;
+	}
+}
+
+// Borders
+.table-bordered {
+	border: 1px solid #eee;
+	th, td {
+		border-left: 1px solid #eee;
+		border-top: 1px solid #eee;
+	}
+}
+
+
+/* Icons */
+// For details, see http://css-tricks.com/html-for-icon-font-usage/
+
+//With words
+/* Markup
+<h2 id="stats">
+	<span aria-hidden="true" data-icon="&#x21dd;"></span>
+	Stats
+</h2>
+*/
+[data-icon]:before {
+	font-family: 'icons'; /* BYO icon font, mapped smartly */
+	content: attr(data-icon);
+	speak: none; /* Not to be trusted, but hey. */
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+}
+
+// Stand alone
+/* Markup
+<a href="#rss" class="icon-alone" title="RSS">
+	<span aria-hidden="true" data-icon="&#x25a8;"></span>
+	<span class="screen-reader-text">RSS</span>
+</a>
+*/
+.icon-alone {
+	display: inline-block; /* Fix for clickability issue in WebKit */
+	text-decoration: none;
+}
+.screen-reader-text { /* Reusable, toolbox kind of class */
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+.icon-large {
+	font-size: 2em;
+}
+
+/* Miscelaneous */
+abbr[title] {
+	cursor: help;
+	border-bottom: 1px dotted #999;
+}
+
+// Little badges to be set atop another element
+.badge {}
+
+// Response background styles (for buttons etc)
+.bg-success { @include bgColorSuccess; }
+.bg-info { @include bgColorInfo; }
+.bg-warning { @include bgColorWarning; }
+.bg-error { @include bgColorError; }
+.btn.bg-success:hover, button.bg-success:hover { @include bgColorSuccessHover; }
+.btn.bg-info:hover, button.bg-info:hover { @include bgColorInfoHover; }
+.btn.bg-warning:hover, button.bg-warning:hover { @include bgColorWarningHover; }
+.btn.bg-error:hover, button.bg-error:hover { @include bgColorErrorHover; }
+.btn.bg-success:active, button.bg-success:active { @include bgColorSuccessActive; }
+.btn.bg-info:active, button.bg-info:active { @include bgColorInfoActive; }
+.btn.bg-warning:active, button.bg-warning:active { @include bgColorWarningActive; }
+.btn.bg-error:active, button.bg-error:active { @include bgColorErrorActive; }
+
+/* Navigation */
+nav[role="navigation"] {
+	>ul {
+		>li {}
+		>li>a {
+			&:hover {}
+		}
+	}
+}
+
+.nav-tabs {
+	>li {}
+	>li>a {}
+}
+
+.nav-pills {
+	>li {}
+	>li>a {}
+}
+
+.nav-stacked {
+	>li {}
+	>li>a {}
+}
+
+nav[role="navigation"]>ul>li.dropdown {
+	position: relative;
+}
+nav[role="navigation"]>ul ul {
+	display: none;
+	position: absolute;
+}
+nav[role="navigation"]>ul>li:hover ul {
+	display: block;
+}
+nav[role="navigation"]>ul ul>li {}
+nav[role="navigation"]>ul ul>li>a {}
+nav[role="navigation"]>ul ul>li>a:hover {}
+
+/* Breadcrumb */
+// Can this be combined with pagination??
+.breadcrumb {
+	list-style: none;
+	>li {
+		display: inline-block;
+	}
+	>.divider {}
+	>li:last-child a {
+		cursor: default;
+		text-decoration: none;
+		&:hover {
+			color: inherit;
+		}
+	}
+}
+
+/* Pagination */
+.pagination {
+	margin: 20px 0;
+	display: inline-block;
+
+	> li {
+		display: inline;
+	}
+	> li > a {
+		float: left;
+		&:hover {
+		}
+	}
+	> .current > a {
+		cursor: default;
+		text-decoration: none;
+		&:hover {
+			color: inherit;
+		}
+	}
+	> .disabled > a,
+	> .disabled > a:hover {
+		cursor: default;
+	}
+	> li:first-child > a {
+	}
+	> li:last-child > a {
+	}
+}
+
+/* Progress Bars */
+.progress {
+	width: 100%;
+	height: 1em;
+	border: 1px solid purple;
+	>.bar {
+		height: 100%;
+		background-color: fuchsia;
+	}
+}
+
+/* Thumbnails */
+.thumbnail {
+	>img {
+		max-width: 100%;
+	}
+}
+
+/* Dialogs */
+.dialog {}
